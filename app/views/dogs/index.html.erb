@@ -1,0 +1,13 @@
+
+<h1>Perros</h1>
+
+<% if logged_in? %>
+	<h1>Hola <%= current_dog.name %>, ya estás logueado %></h1>
+	<%= link_to 'Cerrar sesión', logout_path, method: :delete %>
+<% else %>
+	<h1>Debes loguearte en <%= link_to 'Logueate', login_path %></h1>
+<% end %>
+
+<% @dogs.each do |dog| %>
+  <li>Hola, soy un perro, mi nombre es <%= dog.name %> y mi password hash es: <%= dog.password_digest %></li>
+<% end %>
